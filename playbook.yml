@@ -28,8 +28,8 @@
     - role: mysql
       mysql_root_password: "{{ MYSQL_ROOT }}"
       mysql_bind_address: 0.0.0.0
-      mysql_character_set_server: "utf8"
-      mysql_collation_server: "utf8_general_ci"
+      #mysql_character_set_server: "utf8"
+      #mysql_collation_server: "utf8_general_ci"
       mysql_innodb_file_per_table: "innodb_file_per_table"
       mysql_databases:
         - name: "{{ MYSQL_KEYSTONE_DB }}"
@@ -46,19 +46,19 @@
           encoding: "utf8"
       mysql_users:
         - name: "{{ MYSQL_KEYSTONE_USER }}"
-          pass: "{{ MYSQL_KEYSTONE_PASS }}"
+          password: "{{ MYSQL_KEYSTONE_PASS }}"
           priv: "{{ MYSQL_KEYSTONE_DB }}.*:ALL"
           host: "%"
         - name: "{{ MYSQL_GLANCE_USER }}"
-          pass: "{{ MYSQL_GLANCE_PASS }}"
+          password: "{{ MYSQL_GLANCE_PASS }}"
           priv: "{{ MYSQL_GLANCE_DB }}.*:ALL"
           host: "%"
         - name: "{{ MYSQL_NEUTRON_USER }}"
-          pass: "{{ MYSQL_NEUTRON_PASS }}"
+          password: "{{ MYSQL_NEUTRON_PASS }}"
           priv: "{{ MYSQL_NEUTRON_DB }}.*:ALL"
           host: "%"
         - name: "{{ MYSQL_NOVA_USER }}"
-          pass: "{{ MYSQL_NOVA_PASS }}"
+          password: "{{ MYSQL_NOVA_PASS }}"
           priv: "{{ MYSQL_NOVA_DB }}.*:ALL"
           host: "%"
 
